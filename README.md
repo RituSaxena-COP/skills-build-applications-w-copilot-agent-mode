@@ -43,6 +43,12 @@ Auth endpoints (dj-rest-auth):
 - POST `/api/auth/registration/` with `username`, `password1`, `password2` to register.
 - POST `/api/auth/login/` with `username`, `password` to obtain auth `key` (Token).
 
+Public profile endpoints:
+
+- GET `/api/profiles/` — list public profiles (no auth required)
+- GET `/api/profiles/<username>/` — retrieve a public profile by username (no auth required)
+- GET/PATCH `/api/profile/` — current user's profile (auth required)
+
 5. Create a superuser:
 
 ```bash
