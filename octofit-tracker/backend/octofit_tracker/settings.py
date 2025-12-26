@@ -174,3 +174,8 @@ try:
 except Exception:
     # If disconnect fails (e.g., signal not connected yet), ignore
     pass
+
+# django-allauth account settings (development friendly)
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False

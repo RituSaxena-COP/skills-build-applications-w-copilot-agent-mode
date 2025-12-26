@@ -38,6 +38,11 @@ python octofit-tracker/backend/scripts/create_default_site.py
 python octofit-tracker/backend/manage.py migrate
 ```
 
+Auth endpoints (dj-rest-auth):
+
+- POST `/api/auth/registration/` with `username`, `password1`, `password2` to register.
+- POST `/api/auth/login/` with `username`, `password` to obtain auth `key` (Token).
+
 5. Create a superuser:
 
 ```bash
