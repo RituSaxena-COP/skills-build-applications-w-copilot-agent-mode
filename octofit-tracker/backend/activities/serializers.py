@@ -10,3 +10,4 @@ class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
         fields = ['id', 'user', 'activity_type', 'duration_minutes', 'distance_km', 'notes', 'timestamp', 'created_at']
+        read_only_fields = ('user', 'created_at')

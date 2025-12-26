@@ -164,3 +164,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+
+# Workaround: disable automatic creation of default Site during post_migrate
+# (djongo's SQL parsing can raise errors during post_migrate checks in CI/local)
+from django.db.models.signals import post_migrate
+from django.contrib.sites.management import create_default_site
+try:
+    post_migrate.disconnect(create_default_site)
+except Exception:
+    # If disconnect fails (e.g., signal not connected yet), ignore
+    pass
