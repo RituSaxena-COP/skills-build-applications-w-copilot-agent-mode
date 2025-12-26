@@ -2,9 +2,12 @@ from rest_framework import serializers
 from .models import Profile, Activity
 
 class ProfileSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+
     class Meta:
         model = Profile
         fields = ['id', 'user', 'bio', 'created_at']
+        read_only_fields = ('id', 'user', 'created_at')
 
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
